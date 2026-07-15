@@ -1,0 +1,3 @@
+extends CheckButton
+
+var path = ""

@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://bg6m47mo6fiyk"]
+
+[ext_resource type="Script" uid="uid://cwmd6tvuxshuu" path="res://scripts/delete_wordset.gd" id="1_uu44i"]
+[ext_resource type="PackedScene" uid="uid://qsule5k1fnij" path="res://scenes/worditem.tscn" id="2_v1ce7"]
+
+[sub_resource type="FontVariation" id="FontVariation_kn2b4"]
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1ce7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l16o"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2hk0"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4k85"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k38wr"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="DELETE WORDSET" type="Control" unique_id=1118674588 node_paths=PackedStringArray("list")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uu44i")
+item = ExtResource("2_v1ce7")
+list = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=237229801]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=493753903]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Delete Sets"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1445153634]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=1680085746]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1754524653]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=269101729]
+custom_minimum_size = Vector2(0, 416)
+layout_mode = 2
+
+[node name="List" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1841216607]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1706528069]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_kn2b4")
+text = "Any checked wordsets WILL be deleted"
+label_settings = SubResource("LabelSettings_v1ce7")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1155795460]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_kn2b4")
+text = "\"Basic 1000\" can be deleted but will be readded on app launch, see GitHub's README.md for reasoning"
+label_settings = SubResource("LabelSettings_v1ce7")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Buttons" type="PanelContainer" parent="VBoxContainer" unique_id=1712052166]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Buttons" unique_id=934213214]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Buttons/MarginContainer" unique_id=1347439708]
+layout_mode = 2
+
+[node name="Done" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=1554473018]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l16o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q2hk0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j4k85")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
+text = "Done"
+icon_alignment = 2
+
+[node name="Cancel" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=872499393]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l16o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q2hk0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j4k85")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
+text = "Cancel"
+icon_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

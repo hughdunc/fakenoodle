@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://bewt5dg88wqel"]
+
+[ext_resource type="Texture2D" uid="uid://bu41n00dno88g" path="res://icons/target.png" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dddv8pkahebji" path="res://scripts/game.gd" id="1_yqjtg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lnu2h"]
+viewport_path = NodePath("card 1/Sprite3D/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yqjtg"]
+viewport_path = NodePath("card 1/Sprite3D2/SubViewport")
+
+[node name="GAME" type="Node3D" unique_id=948852900 node_paths=PackedStringArray("card_1", "card_2", "next", "new_game")]
+script = ExtResource("1_yqjtg")
+card_1 = NodePath("card 1")
+card_2 = NodePath("card 2")
+next = NodePath("Camera3D/Done")
+new_game = NodePath("Camera3D/Finish")
+
+[node name="card 1" type="Node3D" parent="." unique_id=353507376]
+
+[node name="Sprite3D" type="Sprite3D" parent="card 1" unique_id=694024204]
+texture = SubResource("ViewportTexture_lnu2h")
+region_enabled = true
+region_rect = Rect2(0, 0, 350, 500)
+
+[node name="SubViewport" type="SubViewport" parent="card 1/Sprite3D" unique_id=603169839]
+
+[node name="Button" type="PanelContainer" parent="card 1/Sprite3D/SubViewport" unique_id=1094925775]
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="card 1/Sprite3D/SubViewport/Button" unique_id=847218829]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Player" type="Label" parent="card 1/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=508628057]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="card 1/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1241943191]
+layout_mode = 2
+text = "Don't tell the word to others"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="card 1/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1543192943]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label3" type="Label" parent="card 1/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=717592664]
+layout_mode = 2
+text = "Hold to reveal"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="card 1/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1212292466]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_uwrxv")
+flip_h = true
+
+[node name="Sprite3D2" type="Sprite3D" parent="card 1" unique_id=1094343632]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0, 0, -0.01)
+texture = SubResource("ViewportTexture_yqjtg")
+region_enabled = true
+region_rect = Rect2(0, 0, 350, 500)
+
+[node name="SubViewport" type="SubViewport" parent="card 1/Sprite3D2" unique_id=1336049848]
+
+[node name="Button" type="PanelContainer" parent="card 1/Sprite3D2/SubViewport" unique_id=2104113353]
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="card 1/Sprite3D2/SubViewport/Button" unique_id=2001759021]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Player" type="Label" parent="card 1/Sprite3D2/SubViewport/Button/VBoxContainer" unique_id=395188446]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="card 1/Sprite3D2/SubViewport/Button/VBoxContainer" unique_id=1637285142]
+layout_mode = 2
+
+[node name="Word" type="Label" parent="card 1/Sprite3D2/SubViewport/Button/VBoxContainer/PanelContainer" unique_id=823768020]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Bob Ross"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="card 1/Sprite3D2/SubViewport/Button/VBoxContainer" unique_id=589181920]
+visible = false
+layout_mode = 2
+text = "Hint: Balsend"
+horizontal_alignment = 1
+
+[node name="card 2" type="Node3D" parent="." unique_id=257038038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="card 2" unique_id=2067662341]
+texture = SubResource("ViewportTexture_lnu2h")
+region_enabled = true
+region_rect = Rect2(0, 0, 350, 500)
+
+[node name="SubViewport" type="SubViewport" parent="card 2/Sprite3D" unique_id=751815496]
+
+[node name="Button" type="PanelContainer" parent="card 2/Sprite3D/SubViewport" unique_id=1812676098]
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="card 2/Sprite3D/SubViewport/Button" unique_id=36014722]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Player" type="Label" parent="card 2/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1699071]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="card 2/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1729452900]
+layout_mode = 2
+text = "Don't tell the word to others"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="card 2/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=768946860]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label3" type="Label" parent="card 2/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1850555407]
+layout_mode = 2
+text = "Hold to reveal"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="card 2/Sprite3D/SubViewport/Button/VBoxContainer" unique_id=1876139913]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_uwrxv")
+flip_h = true
+
+[node name="Sprite3D2" type="Sprite3D" parent="card 2" unique_id=874448439]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 0, 0, -0.01)
+texture = SubResource("ViewportTexture_yqjtg")
+region_enabled = true
+region_rect = Rect2(0, 0, 350, 500)
+
+[node name="SubViewport" type="SubViewport" parent="card 2/Sprite3D2" unique_id=62835479]
+
+[node name="Button" type="PanelContainer" parent="card 2/Sprite3D2/SubViewport" unique_id=1795282243]
+offset_right = 350.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="card 2/Sprite3D2/SubViewport/Button" unique_id=357581042]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Player" type="Label" parent="card 2/Sprite3D2/SubViewport/Button/VBoxContainer" unique_id=1812447149]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="card 2/Sprite3D2/SubViewport/Button/VBoxContainer" unique_id=1276559455]
+layout_mode = 2
+
+[node name="Word" type="Label" parent="card 2/Sprite3D2/SubViewport/Button/VBoxContainer/PanelContainer" unique_id=418676466]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "YOU ARE THE IMPOSTER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="card 2/Sprite3D2/SubViewport/Button/VBoxContainer" unique_id=1368985617]
+layout_mode = 2
+text = "Hint: Balsend"
+horizontal_alignment = 1
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=701120443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5)
+
+[node name="Finish" type="Button" parent="Camera3D" unique_id=1118342421]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -107.0
+offset_right = 111.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="Reveal" type="Button" parent="Camera3D/Finish" unique_id=71213800]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -157.0
+offset_right = 112.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Reveal Imposter"
+
+[node name="Done" type="Button" parent="Camera3D" unique_id=1300454238]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -157.0
+offset_right = 112.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Done"
+
+[connection signal="pressed" from="Camera3D/Finish" to="." method="_on_finish_pressed"]
+[connection signal="pressed" from="Camera3D/Finish/Reveal" to="." method="_on_reveal_pressed"]
+[connection signal="pressed" from="Camera3D/Done" to="." method="_on_next_pressed"]

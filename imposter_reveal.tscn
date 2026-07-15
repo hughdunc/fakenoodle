@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cxhyjvnjn32d3"]
+
+[ext_resource type="Script" uid="uid://wpwbhf8tbidx" path="res://imposter_reveal.gd" id="1_l5pr1"]
+
+[node name="IMPOSTER REVEAL" type="Control" unique_id=1490984130]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5pr1")
+
+[node name="Button" type="PanelContainer" parent="." unique_id=847487317]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -328.0
+offset_right = 175.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button" unique_id=1707807378]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Player2" type="Label" parent="Button/VBoxContainer" unique_id=174545297]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Imposters:"
+horizontal_alignment = 1
+
+[node name="Player" type="Label" parent="Button/VBoxContainer" unique_id=595210229]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Imposter, Imposter, Impos"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Word" type="Label" parent="Button/VBoxContainer" unique_id=2105082660]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Word: Quiche"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="Button/VBoxContainer" unique_id=128017920]
+layout_mode = 2
+text = "Hint: Balsend"
+horizontal_alignment = 1
+
+[node name="Done" type="Button" parent="." unique_id=1459776786]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -165.0
+offset_right = 112.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[connection signal="pressed" from="Done" to="." method="_on_done_pressed"]
