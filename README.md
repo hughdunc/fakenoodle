@@ -2,6 +2,20 @@
 
 There arent any wordsets here yet, but heres how do download them anyway!
 
+## How do Wordsets work?
+
+Every time a new game starts, it chooses a random wordset
+
+After it chooses the wordset, it chooses a random word/hint from that set
+
+### Why not just combine all selected sets and choose from there?
+
+Because the default pack had 1000 words, I wanted other peoples kits to have the same chance of showing up without having to add the same words 100 times each
+
+### Multiple hints?
+I will probably add that very soon where you can have the hint be an array and it will randomly choose from that array uniquely for each imposter, but right now it only supports one hint per word.
+
+
 ## How to install files
 
 ### File Download Method
