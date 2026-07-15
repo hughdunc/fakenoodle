@@ -2,7 +2,7 @@
 
 Fake Noodle is an imposter game, but every other app is paid for new words and features so I made my own
 
-** If you have any ideas or feedback, please please say so! Best place to say it is Github Issues**
+**If you have any ideas or feedback, please please say so! Best place to say it is Github Issues**
 
 Made with Godot Engine 4.6.1.stable
 
