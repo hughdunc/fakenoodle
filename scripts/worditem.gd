@@ -1,3 +1,0 @@
-extends CheckButton
-
-var path = ""
