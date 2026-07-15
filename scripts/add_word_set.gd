@@ -12,7 +12,7 @@ func _on_export_pressed():
 	get_tree().change_scene_to_file("res://scenes/export_wordsets.tscn")
 
 func _on_find_pressed():
-	print("I dont have this set up yet so fuck you")
+	OS.shell_open("https://github.com/hughdunc/fakenoodle/tree/wordsets")
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://scenes/words.tscn")
