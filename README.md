@@ -16,7 +16,7 @@ Because the default pack had 1000 words, I wanted other peoples kits to have the
 I will probably add that very soon where you can have the hint be an array and it will randomly choose from that array uniquely for each imposter, but right now it only supports one hint per word.
 
 
-## How to install files
+# How to Install new wordsets
 
 ### File Download Method
 1. Download any JSON file(s) of your choice
@@ -36,7 +36,7 @@ I will probably add that very soon where you can have the hint be an array and i
 6. Paste the JSON you copied into the Text Box
 7. Enable or disable them in the Words menu!
 
-## How to export custom wordsets
+# How to export custom wordsets
 
 1. Create a wordset, if not already
 2. Go to the Words menu
@@ -45,7 +45,7 @@ I will probably add that very soon where you can have the hint be an array and i
 5. Select any wordsets you want to export as JSON
 6. Send JSON files anywhere you want and have them use the Install guide here!
 
-## How to submit wordsets to here
+# How to submit wordsets to here
 
 1. Export your wordset JSONs
 2. Be logged into GitHub
