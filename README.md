@@ -25,7 +25,8 @@ I dont feel like paying money to become an apple developer so unless someone don
 ### Redistrubiting
 
 If you are an Apple or Google developer and want to post this on Google Play or the App Store, that would be awesome!
-***But PLEASE ask me first.*** All of my contact info is on [my website](https://zawgg.com/) or (preferably) text me on discord @3hugh
+My only issue with anybody releasing on app stores is *YOU MUST not have ANY advertisements or in-app purchases.* Thats the whole point of this project, anyway.
+***And PLEASE ask me first.*** All of my contact info is on [my website](https://zawgg.com/) or (preferably) text me on discord @3hugh
 
 Other than that, this is under the MIT licence
 
