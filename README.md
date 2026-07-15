@@ -4,6 +4,31 @@ Fake Noodle is an imposter game, but every other app is paid for new words and f
 
 ** If you have any ideas or feedback, please please say so! Best place to say it is Github Issues**
 
+Made with Godot Engine 4.6.1.stable
+
+# Installing
+
+## Android
+
+1. Go to the latest release
+2. Download the APK
+3. Open the APK
+4. Click `More Details`
+5. Click `Install Anyway`
+6. Open the app and enjoy!
+
+## iOS
+
+I dont feel like paying money to become an apple developer so unless someone donates 👀 or if theres a way to do it without paying a fee it probably wont happen
+
+
+### Redistrubiting
+
+If you are an Apple or Google developer and want to post this on google play, that would be awesome!
+But PLEASE ask me first. All of my contact info is on [my website](https://zawgg.com/) or (preferably) text me on discord @3hugh
+
+Other than that, this is under the MIT licence
+
 ## Where to get Wordsets?
 
 Go to the `wordsets` git branch and read the README, it will show how to get, create, or post wordsets
