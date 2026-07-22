@@ -1,6 +1,7 @@
 {
     "name": "Christmas",
     "group": "imposter.app",
+    "enabled": false,
     "words": {
         "Advent": "Waiting",
         "Advent Calendar": "24 Doors",
