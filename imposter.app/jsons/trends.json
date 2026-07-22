@@ -1,5 +1,6 @@
 {
-    "name": "Trends (from imposter.app)",
+    "name": "Trends",
+    "group": "imposter.app",
     "words": {
         "Acai": "Breakfast",
         "AI Art": "Generated",

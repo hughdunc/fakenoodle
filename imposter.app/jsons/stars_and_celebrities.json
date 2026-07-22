@@ -1,5 +1,6 @@
 {
-    "name": "Stars And Celebrities (from imposter.app)",
+    "name": "Stars And Celebrities",
+    "group": "imposter.app",
     "words": {
         "Adele": "Soul Musician",
         "Ariana Grande": "Female Pop Icon",

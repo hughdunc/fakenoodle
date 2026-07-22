@@ -1,5 +1,6 @@
 {
-    "name": "Professions (from imposter.app)",
+    "name": "Professions",
+    "group": "imposter.app",
     "words": {
         "Accountant": "Spreadsheets",
         "Archaeologist": "Dig",

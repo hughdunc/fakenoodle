@@ -1,5 +1,6 @@
 {
-    "name": "Internet Culture (from imposter.app)",
+    "name": "Internet Culture",
+    "group": "imposter.app",
     "words": {
         "AFK": "Away",
         "Algorithm": "For You",

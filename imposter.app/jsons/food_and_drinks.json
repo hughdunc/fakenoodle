@@ -1,5 +1,6 @@
 {
-    "name": "Food And Drinks (from imposter.app)",
+    "name": "Food And Drinks",
+    "group": "imposter.app",
     "words": {
         "Avocado Toast": "Brunch",
         "Bagel": "New York",

@@ -1,5 +1,6 @@
 {
-    "name": "Easy Words (from imposter.app)",
+    "name": "Easy Words",
+    "group": "imposter.app",
     "words": {
         "Airplane": "Air",
         "Alarm Clock": "Bell",

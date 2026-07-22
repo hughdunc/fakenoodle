@@ -1,5 +1,6 @@
 {
-    "name": "Retro And Nostalgia (from imposter.app)",
+    "name": "Retro And Nostalgia",
+    "group": "imposter.app",
     "words": {
         "Angry Birds": "Slingshot",
         "Arcade": "Tokens",

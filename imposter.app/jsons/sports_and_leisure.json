@@ -1,5 +1,6 @@
 {
-    "name": "Sports And Leisure (from imposter.app)",
+    "name": "Sports And Leisure",
+    "group": "imposter.app",
     "words": {
         "Away Game": "Guest",
         "Badminton": "Shuttlecock",

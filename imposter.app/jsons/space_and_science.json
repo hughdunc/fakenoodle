@@ -1,5 +1,6 @@
 {
-    "name": "Space And Science (from imposter.app)",
+    "name": "Space And Science",
+    "group": "imposter.app",
     "words": {
         "3D Printer": "Layers",
         "Alien": "Area 51",

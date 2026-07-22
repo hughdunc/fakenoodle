@@ -1,5 +1,6 @@
 {
-    "name": "Around The World (from imposter.app)",
+    "name": "Around The World",
+    "group": "imposter.app",
     "words": {
         "Admission Price": "Museum",
         "Air Conditioning": "Hot",

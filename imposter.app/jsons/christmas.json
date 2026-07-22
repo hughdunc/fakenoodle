@@ -1,5 +1,6 @@
 {
-    "name": "Christmas (from imposter.app)",
+    "name": "Christmas",
+    "group": "imposter.app",
     "words": {
         "Advent": "Waiting",
         "Advent Calendar": "24 Doors",

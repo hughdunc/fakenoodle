@@ -1,5 +1,6 @@
 {
-    "name": "Fantasy And Fiction (from imposter.app)",
+    "name": "Fantasy And Fiction",
+    "group": "imposter.app",
     "words": {
         "Bigfoot": "Blurry Photo",
         "Boogeyman": "Closet",

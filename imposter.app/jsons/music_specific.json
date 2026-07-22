@@ -1,5 +1,6 @@
 {
-    "name": "Music Specific (from imposter.app)",
+    "name": "Music Specific",
+    "group": "imposter.app",
     "words": {
         "Acapella": "No Instruments",
         "Acoustic Version": "Stripped",

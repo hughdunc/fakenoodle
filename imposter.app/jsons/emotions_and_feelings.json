@@ -1,5 +1,6 @@
 {
-    "name": "Emotions And Feelings (from imposter.app)",
+    "name": "Emotions And Feelings",
+    "group": "imposter.app",
     "words": {
         "Adrenaline": "Roller Coaster",
         "Anger": "Steam",

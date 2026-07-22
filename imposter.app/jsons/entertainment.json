@@ -1,5 +1,6 @@
 {
-    "name": "Entertainment (from imposter.app)",
+    "name": "Entertainment",
+    "group": "imposter.app",
     "words": {
         "3D Glasses": "Cinema",
         "Action Movie": "Pursuit",

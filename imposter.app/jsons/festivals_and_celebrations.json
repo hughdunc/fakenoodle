@@ -1,5 +1,6 @@
 {
-    "name": "Festivals And Celebrations (from imposter.app)",
+    "name": "Festivals And Celebrations",
+    "group": "imposter.app",
     "words": {
         "After Party": "Second Location",
         "Anniversary": "Milestone",

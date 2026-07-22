@@ -1,5 +1,6 @@
 {
-    "name": "Animals And Nature (from imposter.app)",
+    "name": "Animals And Nature",
+    "group": "imposter.app",
     "words": {
         "Animal Track": "Follow",
         "Bat": "Upside Down",

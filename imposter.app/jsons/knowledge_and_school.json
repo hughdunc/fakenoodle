@@ -1,5 +1,6 @@
 {
-    "name": "Knowledge And School (from imposter.app)",
+    "name": "Knowledge And School",
+    "group": "imposter.app",
     "words": {
         "Algebra": "Find X",
         "Alphabet": "Song",

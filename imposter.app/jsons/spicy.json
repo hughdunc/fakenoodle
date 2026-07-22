@@ -1,5 +1,6 @@
 {
-    "name": "Spicy (from imposter.app)",
+    "name": "Spicy",
+    "group": "imposter.app",
     "words": {
         "Aphrodisiac": "Oysters",
         "Blindfold": "Guessing",
