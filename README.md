@@ -1,6 +1,8 @@
 # Wordsets
 
-There arent any wordsets here yet, but heres how do download them anyway!
+I took a bunch of wordsets from other imposter apps and put them into their respective folders, and all rights belong to the creators of that app.
+
+If you are a developer and see your words on here and do not want them on here, please contact me!
 
 ## How do Wordsets work?
 
