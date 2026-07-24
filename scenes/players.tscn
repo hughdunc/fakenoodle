@@ -115,7 +115,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Add Player" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2065772436]
+[node name="Reset Players" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2065772436]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Reset Players"
+
+[node name="Add Player2" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2107440280]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Add Player"
@@ -165,6 +170,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
 text = "Cancel"
 icon_alignment = 2
 
-[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Add Player" to="." method="_on_add_player_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Reset Players" to="." method="_on_reset_players_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Add Player2" to="." method="_on_add_player_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

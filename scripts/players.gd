@@ -17,7 +17,7 @@ func item_remove(i: Node):
 		i.queue_free()
 
 func _ready():
-	for p in Global.players:
+	for p in Global.get_setting("players", Global.players):
 		var i = item.instantiate()
 		i.get_node("LineEdit").text = p
 		i.up_pressed.connect(item_up)
@@ -32,7 +32,7 @@ func _on_done_pressed():
 	for p in newplayers:
 		if p.strip_edges() == "":
 			return
-	Global.players = newplayers
+	Global.set_setting("players", newplayers)
 	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 
 
@@ -46,3 +46,8 @@ func _on_add_player_pressed():
 	i.down_pressed.connect(item_down)
 	i.remove_pressed.connect(item_remove)
 	list.add_child(i)
+
+
+func _on_reset_players_pressed():
+	Global.set_setting("players", ["Player 1", "Player 2", "Player 3"])
+	get_tree().reload_current_scene()

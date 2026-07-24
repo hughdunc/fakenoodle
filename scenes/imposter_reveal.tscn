@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxhyjvnjn32d3"]
 
-[ext_resource type="Script" uid="uid://wpwbhf8tbidx" path="res://imposter_reveal.gd" id="1_l5pr1"]
+[ext_resource type="Script" uid="uid://wpwbhf8tbidx" path="res://scripts/imposter_reveal.gd" id="1_l5pr1"]
 
 [node name="IMPOSTER REVEAL" type="Control" unique_id=1490984130]
 layout_mode = 3

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://w74myq473mly" path="res://scripts/export_wordsets.gd" id="1_oi6tp"]
 [ext_resource type="PackedScene" uid="uid://qsule5k1fnij" path="res://scenes/worditem.tscn" id="2_26w4o"]
+[ext_resource type="PackedScene" uid="uid://d0jlnu84h2jwv" path="res://scenes/word_group.tscn" id="3_chjrg"]
+[ext_resource type="Texture2D" uid="uid://brks35x2aah6r" path="res://icons/backward.png" id="4_3j1r3"]
 
 [sub_resource type="FontVariation" id="FontVariation_kn2b4"]
 variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
@@ -65,7 +67,7 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="EXPORT WORDSETS" type="Control" unique_id=1118674588 node_paths=PackedStringArray("list")]
+[node name="EXPORT WORDSETS" type="Control" unique_id=1118674588 node_paths=PackedStringArray("list", "word_group", "group_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,6 +77,8 @@ grow_vertical = 2
 script = ExtResource("1_oi6tp")
 item = ExtResource("2_26w4o")
 list = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List")
+word_group = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group")
+group_list = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group/Group List")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=237229801]
 layout_mode = 1
@@ -114,6 +118,28 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Word Group" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=521711534]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Back" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" unique_id=1532447198 instance=ExtResource("3_chjrg")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Back"
+icon = ExtResource("4_3j1r3")
+alignment = 1
+icon_alignment = 0
+
+[node name="Select All" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" unique_id=193405101]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Select All"
+
+[node name="Group List" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" unique_id=728492769]
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1706528069]
 layout_mode = 2
@@ -161,5 +187,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
 text = "Cancel"
 icon_alignment = 2
 
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group/Select All" to="." method="_on_select_all_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

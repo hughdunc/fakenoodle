@@ -4,6 +4,7 @@ extends Node3D
 @export var card_2: Node3D
 @export var next: Button
 @export var new_game: Button
+@export var exit: Button
 
 var pressing = false
 var enabled = true
@@ -34,7 +35,7 @@ func _input(event):
 	if event is InputEventScreenTouch:
 		if not event.pressed:
 			pressing = false
-		elif idx < len(Global.players) and event.position.y < next.position.y - (next.size.y / 1.5):
+		elif idx < len(Global.players) and event.position.y < next.position.y - (next.size.y / 1.5) and event.position.y > exit.position.y + exit.size.y:
 			pressing = true
 
 
@@ -86,9 +87,58 @@ func update_card(card: Node3D, player_idx: int):
 	if player_idx == len(Global.players):
 		card.visible = true
 		
+		# --- PERFECT PROBABILITY MATH ---
+		var player_count = len(Global.players)
+		var imposter_count = Global.imposter_indexes.size()
+		var normal_count = player_count - imposter_count
+		
+		# Convert 100.0 into 1.0, 50.0 into 0.5, etc.
+		var chance_multiplier = clampf(Global.imposter_starting_chance / 100.0, 0.0, 1.0)
+		
+		var imposter_prob = 0.0
+		var normal_prob = 0.0
+		
+		if normal_count > 0:
+			# 1. Figure out what the fair baseline chance is (e.g. 25% for 4 players)
+			var base_chance = 1.0 / float(player_count)
+			
+			# 2. Scale the imposter's chance by the user setting (e.g. 50% of 25% = 12.5%)
+			imposter_prob = base_chance * chance_multiplier
+			
+			# 3. Figure out how much probability is leftover
+			var total_imposter_prob = imposter_prob * imposter_count
+			var remaining_prob = 1.0 - total_imposter_prob
+			
+			# 4. Divide all remaining probability evenly among the normal players
+			normal_prob = remaining_prob / float(normal_count)
+		else:
+			# Fallback just in case you somehow make a game of ONLY imposters
+			imposter_prob = 1.0 / float(player_count)
+			
+		var weights = []
+		for i in range(player_count):
+			if i in Global.imposter_indexes:
+				weights.append(imposter_prob)
+			else:
+				weights.append(normal_prob)
+				
+		# Roll a random number from 0 to 1
+		var roll = randf()
+		var current_weight = 0.0
+		var starter_idx = 0
+		
+		# Figure out who won the roll
+		for i in range(len(weights)):
+			current_weight += weights[i]
+			if roll <= current_weight:
+				starter_idx = i
+				break
+				
+		var starter_name = Global.players[starter_idx]
+		
 		# Set starter player name
-		box1.get_node("Player").text = Global.players.pick_random()
-		box2.get_node("Player").text = Global.players.pick_random()
+		box1.get_node("Player").text = starter_name
+		box2.get_node("Player").text = starter_name
 		
 		# Change Label2 text
 		box1.get_node("Label2").text = "starts the conversation"
@@ -97,8 +147,6 @@ func update_card(card: Node3D, player_idx: int):
 		box1.get_node("HSeparator").visible = false 
 		box1.get_node("Label3").visible = false
 		box1.get_node("TextureRect").visible = false
-		
-		# Note: We removed new_game.visible = true from here so it only shows when centered
 		
 	# Scenario B: Standard active player card
 	elif player_idx < len(Global.players):
@@ -135,4 +183,8 @@ func _on_finish_pressed():
 
 
 func _on_reveal_pressed():
-	get_tree().change_scene_to_file("res://imposter_reveal.tscn")
+	get_tree().change_scene_to_file("res://scenes/imposter_reveal.tscn")
+
+
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")

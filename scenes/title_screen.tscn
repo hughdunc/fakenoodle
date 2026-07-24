@@ -6,6 +6,7 @@
 
 [sub_resource type="FontVariation" id="FontVariation_1s85s"]
 variation_transform = Transform2D(1.15, 0.625, 0.205, 1.82, 29.525, 4.1)
+baseline_offset = 0.2
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1s85s"]
 load_path = "res://.godot/imported/forward.png-aed3d0e3f172c4e23edda71848527211.ctex"
@@ -210,6 +211,20 @@ theme_override_icons/checked = SubResource("DPITexture_ak2if")
 theme_override_icons/unchecked = SubResource("DPITexture_ig5kc")
 text = "Impasta Hint?"
 
+[node name="Settings" type="Button" parent="VBoxContainer/Options/MarginContainer/VBoxContainer" unique_id=1351346743]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 32
+theme_override_icons/icon = SubResource("CompressedTexture2D_1s85s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v6p8y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ak2if")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ig5kc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_05l2w")
+text = "More Settings"
+alignment = 0
+icon_alignment = 2
+
 [node name="STart" type="PanelContainer" parent="VBoxContainer" unique_id=2005249973]
 layout_mode = 2
 size_flags_vertical = 4
@@ -247,4 +262,5 @@ autowrap_mode = 3
 [connection signal="pressed" from="VBoxContainer/Options/MarginContainer/VBoxContainer/Imposters/MarginContainer/HBoxContainer/HBoxContainer2/Subtract" to="." method="_on_subtract_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options/MarginContainer/VBoxContainer/Imposters/MarginContainer/HBoxContainer/HBoxContainer2/Add" to="." method="_on_add_pressed"]
 [connection signal="toggled" from="VBoxContainer/Options/MarginContainer/VBoxContainer/Hint" to="." method="_on_hint_toggled"]
+[connection signal="pressed" from="VBoxContainer/Options/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/STart/MarginContainer/Start Game" to="." method="_on_start_game_pressed"]

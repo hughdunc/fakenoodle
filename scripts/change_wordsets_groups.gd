@@ -4,8 +4,10 @@ extends Control
 @export var list: Control
 @export var word_group: Control
 @export var group_list: Control
+@export var group_edit: LineEdit
 
 var wordset_buttons: Dictionary = {}
+var group_view_paths: Array = []
 var select_all_button: Button
 
 func _ready():
@@ -22,6 +24,7 @@ func _populate_wordsets():
 
 	_clear_container(list)
 	wordset_buttons.clear()
+	group_view_paths.clear()
 
 	var grouped_entries: Dictionary = {}
 	var ungrouped_entries: Array = []
@@ -33,7 +36,8 @@ func _populate_wordsets():
 		var entry = {
 			"name": ws_name,
 			"path": path,
-			"group_id": group_id
+			"group_id": group_id,
+			"display_text": _get_display_text(ws_name, group_id)
 		}
 
 		if group_id != "":
@@ -69,12 +73,25 @@ func _populate_wordsets():
 
 func _add_wordset_button(entry: Dictionary, target: Control):
 	var i = item.instantiate()
-	i.text = entry["name"]
+	i.text = entry["display_text"]
 	i.path = entry["path"]
 	i.button_pressed = false
 	i.toggled.connect(_on_wordset_toggled.bind(i))
 	target.add_child(i)
 	wordset_buttons[entry["path"]] = i
+	if target == group_list:
+		group_view_paths.append(entry["path"])
+
+func _get_display_text(wordset_name: String, group_id: String) -> String:
+	return wordset_name + "\n[Group: " + _get_group_display_name(group_id) + "]"
+
+func _get_group_display_name(group_id: String) -> String:
+	if group_id == null:
+		return "None"
+	var trimmed = str(group_id).strip_edges()
+	if trimmed.is_empty():
+		return "None"
+	return trimmed
 
 func _get_group_id(path: String) -> String:
 	if FileAccess.file_exists(path):
@@ -111,6 +128,12 @@ func _get_group_label(group_id: String) -> String:
 		readable += piece.substr(0, 1).to_upper() + piece.substr(1).to_lower() + " "
 	return readable.strip_edges()
 
+func _clear_container(container: Node):
+	if not container:
+		return
+	for child in container.get_children():
+		child.queue_free()
+
 func _on_group_pressed(entries: Array):
 	if list:
 		list.visible = false
@@ -121,20 +144,25 @@ func _on_group_pressed(entries: Array):
 func _populate_group_items(entries: Array):
 	var target = _get_group_target_container()
 	_clear_container(target)
+	for path in group_view_paths:
+		wordset_buttons.erase(path)
+	group_view_paths.clear()
 	for entry in entries:
 		_add_wordset_button(entry, target)
 	_update_select_all_button_text()
 
 func _get_group_target_container() -> Node:
-	if group_list and group_list.has_node("Group List"):
-		return group_list.get_node("Group List")
-	return group_list
+	if group_list:
+		return group_list
+	return list
 
-func _clear_container(container: Node):
-	if not container:
-		return
-	for child in container.get_children():
-		child.queue_free()
+func _get_selected_paths() -> Array:
+	var selected_paths: Array = []
+	for path in wordset_buttons.keys():
+		var child = wordset_buttons[path]
+		if is_instance_valid(child) and child is CheckButton and child.button_pressed:
+			selected_paths.append(path)
+	return selected_paths
 
 func _get_group_checkbuttons() -> Array:
 	var buttons: Array = []
@@ -167,41 +195,19 @@ func _set_group_selection(selected: bool):
 		button.button_pressed = selected
 	_update_select_all_button_text()
 
-func _on_wordset_toggled(_is_pressed: bool, _button: CheckButton):
-	_update_select_all_button_text()
+func _update_group_on_disk(path: String, group_name: String):
+	if not FileAccess.file_exists(path):
+		return
 
-func delete_wordset(path: String):
-	# 1. Check if the file exists
-	if FileAccess.file_exists(path):
-		# 2. Attempt to remove the file
-		var err = DirAccess.remove_absolute(path)
-		
-		if err == OK:
-			print("File deleted successfully: " + path)
-			
-			# 3. Remove it from your Global dictionary so the game stops looking for it
-			if Global.wordsets.has(path):
-				Global.wordsets.erase(path)
-				
-			return true
-		else:
-			print("Error: Could not delete file. Error code: " + str(err))
-			return false
-	else:
-		print("Error: File does not exist at " + path)
-		return false
-
-func _on_done_pressed():
-	for path in wordset_buttons.keys():
-		var child = wordset_buttons[path]
-		if child is CheckButton and child.button_pressed:
-			delete_wordset(path)
-			
-	# Only change scene if at least one wordset is enabled
-	get_tree().change_scene_to_file("res://scenes/words.tscn")
-
-func _on_cancel_pressed():
-	get_tree().change_scene_to_file("res://scenes/add_word_set.tscn")
+	var json_string = FileAccess.get_file_as_string(path)
+	var json_data = JSON.parse_string(json_string)
+	if json_data is Dictionary:
+		json_data["group"] = group_name
+		json_data["group_id"] = group_name
+		var file = FileAccess.open(path, FileAccess.WRITE)
+		if file:
+			file.store_string(JSON.stringify(json_data))
+			file.close()
 
 func _on_back_pressed():
 	if list:
@@ -209,6 +215,24 @@ func _on_back_pressed():
 	if word_group:
 		word_group.visible = false
 	_update_select_all_button_text()
+
+func _on_wordset_toggled(_is_pressed: bool, _button: CheckButton):
+	_update_select_all_button_text()
+
+
+func _on_change_pressed():
+	var group_name = ""
+	if group_edit:
+		group_name = group_edit.text.strip_edges()
+
+	if group_name.is_empty():
+		return
+
+	for path in _get_selected_paths():
+		_update_group_on_disk(path, group_name)
+
+	Global.load_wordsets_from_folder()
+	get_tree().reload_current_scene()
 
 func _on_select_all_pressed():
 	var buttons = _get_group_checkbuttons()
@@ -222,3 +246,7 @@ func _on_select_all_pressed():
 			break
 
 	_set_group_selection(not all_selected)
+
+
+func _on_done_pressed():
+	get_tree().change_scene_to_file("res://scenes/words.tscn")

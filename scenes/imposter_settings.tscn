@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://bdmpdiiwrdoy"]
+
+[ext_resource type="Script" uid="uid://dm302a7fsir5p" path="res://scripts/imposter_settings.gd" id="1_h1as7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4v2a"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhte6"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7ae7"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmls5"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="IMPOSTER SETTINGS" type="Control" unique_id=1992821977 node_paths=PackedStringArray("chance_label", "chance_slider", "again_label", "again_slider")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1as7")
+chance_label = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List/StartPercentage")
+chance_slider = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List/StartSlider")
+again_label = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List/AgainPercentage")
+again_slider = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List/AgainSlider")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=331488157]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1866110717]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=74189047]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=1011105616]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1029158625]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2081014201]
+custom_minimum_size = Vector2(0, 520)
+layout_mode = 2
+scroll_deadzone = 12
+
+[node name="List" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1691956909]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StartChance" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=52896760]
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_font_sizes/font_size = 24
+text = "Chance of starting when Imposter"
+
+[node name="StartExplain" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=1976908030]
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_font_sizes/font_size = 12
+text = "Not based on how many players you have. Example: 
+
+If at 100%, with 4 players, imposter has a 25% chance to go first, and everybody else has 25% too. 
+
+If at 50%, with 4 players, imposter has a 12.5% chance to go first, and everybody else has a 29.166% chance to go first."
+autowrap_mode = 3
+
+[node name="StartPercentage" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=1450011722]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "50%"
+horizontal_alignment = 1
+
+[node name="StartSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=1783426866]
+layout_mode = 2
+value = 50.0
+rounded = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=1314756466]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AgainChance" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=784441580]
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_font_sizes/font_size = 24
+text = "Chance of last Imposter going again"
+autowrap_mode = 3
+
+[node name="AgainExplain" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=2085544320]
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_font_sizes/font_size = 12
+text = "Not based on how many players you have. Example: 
+
+If at 100%, with 4 players, the last imposter has a 25% chance to be imposter again, and everybody else has 25% too.
+
+If at 50%, with 4 players, the last imposter has a 12.5% chance to be imposter again, and everybody else has a 29.166% chance to be imposter.
+
+This stacks, so if at 50%, with 4 players, and someone was imposter 2 times, their chances for next round would be 6.25% to be imposter."
+autowrap_mode = 3
+
+[node name="AgainPercentage" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=105867974]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "50%"
+horizontal_alignment = 1
+
+[node name="AgainSlider" type="HSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List" unique_id=2123479512]
+layout_mode = 2
+value = 50.0
+rounded = true
+
+[node name="Buttons" type="PanelContainer" parent="VBoxContainer" unique_id=1149135954]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Buttons" unique_id=456132489]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Buttons/MarginContainer" unique_id=918127430]
+layout_mode = 2
+
+[node name="Done" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=1806901758]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4v2a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhte6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7ae7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cmls5")
+text = "Done"
+icon_alignment = 2
+
+[node name="Cancel" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=347907350]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_s4v2a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhte6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7ae7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cmls5")
+text = "Cancel"
+icon_alignment = 2
+
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List/StartSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List/AgainSlider" to="." method="_on_again_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

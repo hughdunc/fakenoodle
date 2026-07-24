@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://bg6m47mo6fiyk"]
+[gd_scene format=3 uid="uid://cejf86kbq4awv"]
 
-[ext_resource type="Script" uid="uid://cwmd6tvuxshuu" path="res://scripts/delete_wordset.gd" id="1_uu44i"]
-[ext_resource type="PackedScene" uid="uid://qsule5k1fnij" path="res://scenes/worditem.tscn" id="2_v1ce7"]
-[ext_resource type="PackedScene" uid="uid://d0jlnu84h2jwv" path="res://scenes/word_group.tscn" id="3_chjrg"]
-[ext_resource type="Texture2D" uid="uid://brks35x2aah6r" path="res://icons/backward.png" id="4_3j1r3"]
+[ext_resource type="Script" uid="uid://b4ldwb63q3jgx" path="res://scripts/change_wordsets_groups.gd" id="1_n4q5v"]
+[ext_resource type="PackedScene" uid="uid://qsule5k1fnij" path="res://scenes/worditem.tscn" id="2_mqi00"]
+[ext_resource type="PackedScene" uid="uid://d0jlnu84h2jwv" path="res://scenes/word_group.tscn" id="3_smimk"]
+[ext_resource type="Texture2D" uid="uid://brks35x2aah6r" path="res://icons/backward.png" id="4_vkd30"]
 
-[sub_resource type="FontVariation" id="FontVariation_kn2b4"]
+[sub_resource type="FontVariation" id="FontVariation_q2hk0"]
 variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_v1ce7"]
+[sub_resource type="LabelSettings" id="LabelSettings_j4k85"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l16o"]
 content_margin_left = 16.0
@@ -67,18 +67,19 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[node name="DELETE WORDSET" type="Control" unique_id=1118674588 node_paths=PackedStringArray("list", "word_group", "group_list")]
+[node name="GROUPS" type="Control" unique_id=1118674588 node_paths=PackedStringArray("list", "word_group", "group_list", "group_edit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uu44i")
-item = ExtResource("2_v1ce7")
+script = ExtResource("1_n4q5v")
+item = ExtResource("2_mqi00")
 list = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/List")
 word_group = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group")
 group_list = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group/Group List")
+group_edit = NodePath("VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/GroupEdit")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=237229801]
 layout_mode = 1
@@ -94,7 +95,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=493753903]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Delete Sets"
+text = "Groups"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1445153634]
@@ -113,47 +114,53 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=269101729]
 custom_minimum_size = Vector2(0, 416)
 layout_mode = 2
+scroll_deadzone = 12
 
 [node name="List" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1841216607]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Word Group" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
-visible = false
+[node name="Word Group" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=950043440]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Back" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" instance=ExtResource("3_chjrg")]
+[node name="Back" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" unique_id=518211716 instance=ExtResource("3_smimk")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Back"
-icon = ExtResource("4_3j1r3")
+icon = ExtResource("4_vkd30")
 alignment = 1
 icon_alignment = 0
 
-[node name="Select All" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group"]
+[node name="Select All" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" unique_id=334666057]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Select All"
-alignment = 1
 
-[node name="Group List" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group"]
+[node name="Group List" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group" unique_id=869225985]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1706528069]
+[node name="GroupEdit" type="LineEdit" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2078482995]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_kn2b4")
-text = "Any checked wordsets WILL be deleted"
-label_settings = SubResource("LabelSettings_v1ce7")
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+placeholder_text = "New Group ID..."
+max_length = 12
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=120961753]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_q2hk0")
+text = "Select wordsets you want to reassign their groups to"
+label_settings = SubResource("LabelSettings_j4k85")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1155795460]
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1755592735]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_kn2b4")
-text = "\"Basic 1000\" can be deleted but will be readded on app launch, see GitHub's README.md for reasoning"
-label_settings = SubResource("LabelSettings_v1ce7")
+theme_override_fonts/font = SubResource("FontVariation_q2hk0")
+text = "Put the new group name in the text below the wordsets"
+label_settings = SubResource("LabelSettings_j4k85")
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -171,7 +178,19 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Buttons/MarginContainer" unique_id=1347439708]
 layout_mode = 2
 
-[node name="Done" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=1554473018]
+[node name="Change" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=1554473018]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/icon_max_width = 24
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l16o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q2hk0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j4k85")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
+text = "Change"
+icon_alignment = 2
+
+[node name="Done" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=872499393]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/icon_max_width = 24
@@ -183,19 +202,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
 text = "Done"
 icon_alignment = 2
 
-[node name="Cancel" type="Button" parent="VBoxContainer/Buttons/MarginContainer/VBoxContainer" unique_id=872499393]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/icon_max_width = 24
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_1l16o")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_q2hk0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j4k85")
-theme_override_styles/focus = SubResource("StyleBoxFlat_k38wr")
-text = "Cancel"
-icon_alignment = 2
-
-[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Word Group/Select All" to="." method="_on_select_all_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Change" to="." method="_on_change_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MarginContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]

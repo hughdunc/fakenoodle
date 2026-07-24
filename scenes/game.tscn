@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu41n00dno88g" path="res://icons/target.png" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dddv8pkahebji" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://dsn6lujwa004v" path="res://icons/cross.png" id="3_lnu2h"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lnu2h"]
 viewport_path = NodePath("card 1/Sprite3D/SubViewport")
@@ -9,12 +10,13 @@ viewport_path = NodePath("card 1/Sprite3D/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_yqjtg"]
 viewport_path = NodePath("card 1/Sprite3D2/SubViewport")
 
-[node name="GAME" type="Node3D" unique_id=948852900 node_paths=PackedStringArray("card_1", "card_2", "next", "new_game")]
+[node name="GAME" type="Node3D" unique_id=948852900 node_paths=PackedStringArray("card_1", "card_2", "next", "new_game", "exit")]
 script = ExtResource("1_yqjtg")
 card_1 = NodePath("card 1")
 card_2 = NodePath("card 2")
 next = NodePath("Camera3D/Done")
 new_game = NodePath("Camera3D/Finish")
+exit = NodePath("Camera3D/Exit")
 
 [node name="card 1" type="Node3D" parent="." unique_id=353507376]
 
@@ -190,6 +192,7 @@ horizontal_alignment = 1
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=701120443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 5)
+fov = 85.0
 
 [node name="Finish" type="Button" parent="Camera3D" unique_id=1118342421]
 visible = false
@@ -239,6 +242,19 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Done"
 
+[node name="Exit" type="Button" parent="Camera3D" unique_id=1640335060]
+modulate = Color(1, 1, 1, 0.24705882)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 74.0
+grow_horizontal = 0
+icon = ExtResource("3_lnu2h")
+
 [connection signal="pressed" from="Camera3D/Finish" to="." method="_on_finish_pressed"]
 [connection signal="pressed" from="Camera3D/Finish/Reveal" to="." method="_on_reveal_pressed"]
 [connection signal="pressed" from="Camera3D/Done" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Camera3D/Exit" to="." method="_on_exit_pressed"]
