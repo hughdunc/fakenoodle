@@ -225,8 +225,6 @@ func _on_change_pressed():
 	if group_edit:
 		group_name = group_edit.text.strip_edges()
 
-	if group_name.is_empty():
-		return
 
 	for path in _get_selected_paths():
 		_update_group_on_disk(path, group_name)
