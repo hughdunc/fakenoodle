@@ -20,7 +20,9 @@ I will probably add that very soon where you can have the hint be an array and i
 
 ## What are Word Groups?
 
-Word Groups are groups of wordsets that belong together, so you dont have to see all of them listed in your main wordset selection page. This is incredibly helpful when putting lots of different categories together, e.g. from other apps.
+Word Groups are groups of wordsets that belong together, so you dont have to see all of them listed in your main wordset selection page. This is incredibly helpful when putting lots of different categories together, e.g. from other apps. Each wordset has a group id, and a group id of "" (shown as None) means it is ungrouped.
+
+Groups only show if there are at least 2 wordsets in a group together. Otherwise, it is shown individually on the main screen.
 
 
 # How to Install new wordsets
