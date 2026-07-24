@@ -18,6 +18,11 @@ Because the default pack had 1000 words, I wanted other peoples kits to have the
 I will probably add that very soon where you can have the hint be an array and it will randomly choose from that array uniquely for each imposter, but right now it only supports one hint per word.
 
 
+## What are Word Groups?
+
+Word Groups are groups of wordsets that belong together, so you dont have to see all of them listed in your main wordset selection page. This is incredibly helpful when putting lots of different categories together, e.g. from other apps.
+
+
 # How to Install new wordsets
 
 ### File Download Method
